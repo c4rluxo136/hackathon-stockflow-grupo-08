@@ -1,0 +1,8 @@
+h2 { margin-top: 0; font-size: 1.2rem; }
+label { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; font-weight: 600; font-size: 0.9rem; }
+input, textarea, select { padding: 8px; border: 1px solid #ccc; border-radius: 6px; font: inherit; font-weight: normal; }
+.linha { display: flex; gap: 12px; }
+.linha label { flex: 1; min-width: 0; }
+input, textarea, select { width: 100%; }
+.erro { color: #c62828; display: block; margin: -8px 0 12px; }
+.botoes { display: flex; gap: 8px; }

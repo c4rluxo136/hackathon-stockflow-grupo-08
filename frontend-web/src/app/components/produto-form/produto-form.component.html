@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="enviar()" class="card">
+  <h2>{{ produto ? 'Editar produto #' + produto.id : 'Novo produto' }}</h2>
+
+  <label>
+    Nome *
+    <input formControlName="nome" placeholder="Ex.: Teclado USB" />
+  </label>
+  @if (campoInvalido('nome')) {
+    <small class="erro">O nome é obrigatório.</small>
+  }
+
+  <label>
+    Descrição
+    <textarea formControlName="descricao" rows="3"></textarea>
+  </label>
+
+  <label>
+    Categoria *
+    <input formControlName="categoria" placeholder="Ex.: Informática" />
+  </label>
+  @if (campoInvalido('categoria')) {
+    <small class="erro">A categoria é obrigatória.</small>
+  }
+
+  <div class="linha">
+    <label>
+      Quantidade *
+      <input type="number" min="0" formControlName="quantidade" />
+    </label>
+
+    <label>
+      Estoque mínimo *
+      <input type="number" min="0" formControlName="estoqueMinimo" />
+    </label>
+  </div>
+  @if (campoInvalido('quantidade') || campoInvalido('estoqueMinimo')) {
+    <small class="erro">Quantidade e estoque mínimo devem ser 0 ou mais.</small>
+  }
+
+  <div class="botoes">
+    <button type="submit" class="primario">{{ produto ? 'Salvar alterações' : 'Cadastrar' }}</button>
+    @if (produto) {
+      <button type="button" (click)="cancelar.emit()">Cancelar</button>
+    }
+  </div>
+</form>
