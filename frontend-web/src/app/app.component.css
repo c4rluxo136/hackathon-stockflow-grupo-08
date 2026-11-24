@@ -1,0 +1,10 @@
+header { background: #0f766e; color: #fff; padding: 16px 24px; }
+header h1 { margin: 0; }
+header p { margin: 4px 0 0; opacity: 0.85; }
+main { display: grid; grid-template-columns: 340px 1fr; gap: 24px; padding: 24px; }
+.barra { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 12px; }
+.barra select { margin-left: 8px; padding: 6px; }
+.sucesso { background: #dcfce7; color: #166534; padding: 8px 12px; border-radius: 6px; }
+.falha { background: #fee2e2; color: #991b1b; padding: 8px 12px; border-radius: 6px; }
+@media (max-width: 800px) { main { grid-template-columns: 1fr; } }
+.aviso { background: #fef3c7; color: #92400e; padding: 8px 12px; border-radius: 6px; font-weight: bold; }

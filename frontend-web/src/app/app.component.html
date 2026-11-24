@@ -1,0 +1,43 @@
+<header>
+  <h1>StockFlow</h1>
+  <p>Controle de estoque de produtos</p>
+</header>
+
+<main>
+  <section class="formulario">
+    <app-produto-form
+      [produto]="produtoEmEdicao"
+      (salvar)="salvar($event)"
+      (cancelar)="cancelarEdicao()" />
+  </section>
+
+  <section class="lista">
+    <div class="barra">
+      <label>
+        Filtrar por categoria:
+        <select [(ngModel)]="filtroCategoria">
+          <option value="">Todas</option>
+          @for (categoria of categorias; track categoria) {
+            <option [value]="categoria">{{ categoria }}</option>
+          }
+        </select>
+      </label>
+      <button (click)="carregar()">Atualizar</button>
+    </div>
+
+    @if (totalEstoqueBaixo > 0) {
+      <p class="aviso">⚠ {{ totalEstoqueBaixo }} produto(s) com estoque baixo (quantidade ≤ estoque mínimo).</p>
+    }
+    @if (mensagem) {
+      <p class="sucesso">{{ mensagem }}</p>
+    }
+    @if (erro) {
+      <p class="falha">{{ erro }}</p>
+    }
+
+    <app-produto-lista
+      [produtos]="produtosFiltrados"
+      (editar)="editar($event)"
+      (excluir)="excluir($event)" />
+  </section>
+</main>

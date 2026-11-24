@@ -1,0 +1,46 @@
+@if (produtos.length === 0) {
+  <p class="vazio">Nenhum produto encontrado.</p>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Quantidade</th>
+        <th>Estoque mínimo</th>
+        <th>Situação</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (produto of produtos; track produto.id) {
+        <tr [class.baixo]="estoqueBaixo(produto)">
+          <td>{{ produto.id }}</td>
+          <td>
+            <strong>{{ produto.nome }}</strong>
+            @if (produto.descricao) {
+              <div class="descricao">{{ produto.descricao }}</div>
+            }
+          </td>
+          <td>{{ produto.categoria }}</td>
+          <td><strong>{{ produto.quantidade }}</strong></td>
+          <td>{{ produto.estoqueMinimo }}</td>
+          <td>
+            @if (estoqueBaixo(produto)) {
+              <span class="badge alerta">⚠ Estoque baixo</span>
+            } @else {
+              <span class="badge ok">OK</span>
+            }
+          </td>
+          <td>
+            <div class="acoes">
+              <button (click)="editar.emit(produto)">Editar</button>
+              <button class="perigo" (click)="excluir.emit(produto)">Excluir</button>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

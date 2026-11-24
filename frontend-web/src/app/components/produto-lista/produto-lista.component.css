@@ -1,0 +1,11 @@
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #eee; vertical-align: top; }
+th { background: #f3f4f6; font-size: 0.85rem; }
+.descricao { color: #666; font-size: 0.85rem; margin-top: 4px; }
+.acoes { display: flex; gap: 6px; }
+.badge { padding: 3px 8px; border-radius: 12px; font-size: 0.8rem; white-space: nowrap; }
+.ok { background: #dcfce7; color: #166534; }
+.alerta { background: #fee2e2; color: #991b1b; font-weight: bold; }
+tr.baixo { background: #fff5f5; }
+tr.baixo td:first-child { box-shadow: inset 4px 0 0 #ef4444; }
+.vazio { color: #666; }
